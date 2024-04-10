@@ -10,6 +10,17 @@ def encode():
     return encoded
 
 
+def decode(key):
+    decoded_key = ''
+    for i in key:
+        if int(i) - 3 >= 0:
+            decoded_key += f'{int(i)-3}'
+        else:
+            decoded_key += f'{int(i)+7}'
+
+    return decoded_key
+
+
 if __name__ == "__main__":
     while True:
         print("""Menu
@@ -23,6 +34,6 @@ if __name__ == "__main__":
             password = encode()
             print("Your password has been encoded and stored!\n")
         elif choice == 2:
-            decode()
+            print(f'The encoded password is {password}, and the original password is {decode(password)}')
         elif choice == 3:
             break
